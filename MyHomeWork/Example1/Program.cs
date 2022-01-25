@@ -17,7 +17,10 @@ void PrintArray(int[] array)
     int position = 0;
     while (position < size)
     {
-        Console.Write($"{array[position]} ");
+        if (array[position] != 0)
+        {
+            Console.Write($"{array[position]} ");
+        }
         position++;
     }
 }
@@ -26,28 +29,14 @@ int[] ChangeArray(int[] array)
 {
     int N = 8;
     int[] mas2 = new int[array.Length];
-    int j = 0;
-    for (int i = 0; i < mas2.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i] > N)
         {
-            mas2[j] = array[i];
-            j++;
+            mas2[i] = array[i];
         }
     }
-    return (mas2);
-}
-
-void PrintMas2(int[] mas2)
-{
-    int size = mas2.Length;
-    for (int i = 0; i < size; i++)
-    {
-        if (mas2[i] != 0)
-        {
-            Console.Write($"{mas2[i]} ");
-        }
-    }
+    return mas2;
 }
 
 int[] array = new int[5];
@@ -55,4 +44,4 @@ FillArray(array);
 PrintArray(array);
 Console.Write($"-> ");
 int[] mas2 = ChangeArray(array);
-PrintMas2(mas2);
+PrintArray(mas2);
